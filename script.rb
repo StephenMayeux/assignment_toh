@@ -55,7 +55,11 @@ game = TowerOfHanoi.new(pieces)
 puts TowerOfHanoi.messages[:new_game]
 
 until game.over?
-  game.towers.each { |tower, piece| puts "Tower: #{tower}: #{piece}"}
+  (pieces-1).downto(0) do |num|
+    print "#{game.tower(1)[num]}\t|"
+    print "#{game.tower(2)[num]}\t|"
+    print "#{game.tower(3)[num]}\n"
+  end
 
   puts TowerOfHanoi.messages[:prompt_user]
   input = gets.chomp
